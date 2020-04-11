@@ -1,3 +1,9 @@
+const {
+  days,
+  weeks,
+  months,
+  elapsedTimeInDays
+}
 const convertToDays = (timeToElapse, periodType) => {
   if (periodType === days) {
     Math.trunc(2 ** (timeToElapse )/ 3);
@@ -26,7 +32,7 @@ export const impactCases = (data) => {
   const casesForVentilatorsByRequestedTime = parseInt(infectionsByRequestedTime * 0.02, 10);
   const dollarOut = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
   const toTwodecimal = dollarOut.toFixed(2);
-  const dollarsInFlight=(infectionsByRequestedTime*region.avgDailyIncomeInUSD)/elapsedTimeInDays;
+  const dollarsInFlight = (infectionsByRequestedTime * region.avgDailyIncomeInUSD) / elapsedTimeInDays;
   return {
     currentlyInfected,
     infectionsByRequestedTime,
@@ -57,7 +63,7 @@ export const severeImpactCases = (data) => {
   const casesForVentilatorsByRequestedTime = parseInt(infectionsByRequestedTime * 0.02, 10);
   const dollarOut = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
   const toTwodecimal = dollarOut.toFixed(2);
-  const dollarsInFlight=(infectionsByRequestedTime*region.avgDailyIncomeInUSD)/elapsedTimeInDays;
+  const dollarsInFlight = (infectionsByRequestedTime * region.avgDailyIncomeInUSD) / elapsedTimeInDays;
   return {
     currentlyInfected,
     infectionsByRequestedTime,
