@@ -1,27 +1,22 @@
 const convertToDays = (timeToElapse, periodType) => {
   if (periodType === days) {
     Math.trunc(2 ** (timeToElapse / 3));
-
   }else if (periodType === weeks) {
     Math.trunc(2 ** (timeToElapse * 7 / 3));
-
   } else {
     (periodType === months) 
     Math.trunc(2 ** (timeToElapse * 30 / 3));
   };
-
 };
-
 export const impactCases = (data) => {
   const {
-    periodType, 
+    periodType,
     timeToElapse,
     reportedCases,
-    totalHospitalBeds,
+    totalHospitalBeds, 
     region
   } = data;
   const currentlyInfected = reportedCases * 10;
-  // eslint-disable-next-line no-undef
   const timeInDays = convertToDays(periodType, timeToElapse);
   const infectionsByRequestedTime = currentlyInfected * 2 ** parseInt(timeInDays / 3, 10);
   const severeCasesByRequestedTime = parseInt(infectionsByRequestedTime * 0.15, 10);
@@ -31,8 +26,7 @@ export const impactCases = (data) => {
   const casesForVentilatorsByRequestedTime = parseInt(infectionsByRequestedTime * 0.02, 10);
   const dollarOut = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
   const toTwodecimal = dollarOut.toFixed(2);
-  const dollarsInFlight = ( infectionsByRequestedTime * region.avgDailyIncomeInUSD ) / elapsedTimeInDays;
-
+  const dollarsInFlight = (infectionsByRequestedTime * region.avgDailyIncomeInUSD) / elapsedTimeInDays;
   return {
     currentlyInfected,
     infectionsByRequestedTime,
@@ -42,8 +36,7 @@ export const impactCases = (data) => {
     casesForVentilatorsByRequestedTime,
     dollarsInFlight
   };
-}; 
-
+};
 export const severeImpactCases = (data) => {
   const {
     periodType,
@@ -53,8 +46,6 @@ export const severeImpactCases = (data) => {
     region
   } = data;
   const currentlyInfected = reportedCases * 50;
-
-  // eslint-disable-next-line no-undef
   const timeInDays = convertToDays(periodType, timeToElapse);
   const infectionsByRequestedTime = currentlyInfected * 2 ** parseInt(timeInDays / 3, 10);
   const severeCasesByRequestedTime = parseInt(infectionsByRequestedTime * 0.15, 10);
@@ -64,9 +55,7 @@ export const severeImpactCases = (data) => {
   const casesForVentilatorsByRequestedTime = parseInt(infectionsByRequestedTime * 0.02, 10);
   const dollarOut = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
   const toTwodecimal = dollarOut.toFixed(2);
-  const dollarsInFlight = ( infectionsByRequestedTime * region.avgDailyIncomeInUSD ) / elapsedTimeInDays;
-
-
+  const dollarsInFlight = (infectionsByRequestedTime * region.avgDailyIncomeInUSD) / elapsedTimeInDays;
   return {
     currentlyInfected,
     infectionsByRequestedTime,
@@ -77,9 +66,7 @@ export const severeImpactCases = (data) => {
     dollarsInFlight
   };
 };
-
-
-const covid19ImpactEstimator = (data) => ({
+cot covid19ImpactEstimator = (data) => ({
   data,
   impact: impactCases(data),
   severeImpact: severeImpactCases(data)
