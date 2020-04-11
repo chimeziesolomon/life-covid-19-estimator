@@ -66,7 +66,7 @@ export const severeImpactCases = (data) => {
     dollarsInFlight
   };
 };
-cot covid19ImpactEstimator = (data) => ({
+const covid19ImpactEstimator = (data) => ({
   data,
   impact: impactCases(data),
   severeImpact: severeImpactCases(data)
