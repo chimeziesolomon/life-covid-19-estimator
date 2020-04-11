@@ -1,19 +1,19 @@
 const convertToDays = (timeToElapse, periodType) => {
   if (periodType === days) {
-    Math.trunc(2 ** (timeToElapse / 3));
-  }else if (periodType === weeks) {
-    Math.trunc(2 ** (timeToElapse * 7 / 3));
+    Math.trunc(2 ** (timeToElapse )/ 3);
+  } else if (periodType === weeks) {
+    Math.trunc(2 ** (timeToElapse * 7 )/ 3);
   } else {
-    (periodType === months) 
-    Math.trunc(2 ** (timeToElapse * 30 / 3));
-  };
+    periodType = months;
+    Math.trunc(2 ** (timeToElapse * 30 )/ 3);
+  }
 };
 export const impactCases = (data) => {
   const {
     periodType,
     timeToElapse,
     reportedCases,
-    totalHospitalBeds, 
+    totalHospitalBeds,
     region
   } = data;
   const currentlyInfected = reportedCases * 10;
@@ -26,7 +26,7 @@ export const impactCases = (data) => {
   const casesForVentilatorsByRequestedTime = parseInt(infectionsByRequestedTime * 0.02, 10);
   const dollarOut = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
   const toTwodecimal = dollarOut.toFixed(2);
-  const dollarsInFlight = (infectionsByRequestedTime * region.avgDailyIncomeInUSD) / elapsedTimeInDays;
+  const dollarsInFlight=(infectionsByRequestedTime*region.avgDailyIncomeInUSD)/elapsedTimeInDays;
   return {
     currentlyInfected,
     infectionsByRequestedTime,
@@ -34,7 +34,9 @@ export const impactCases = (data) => {
     hospitalBedsByRequestedTime,
     casesForICURequestedTime,
     casesForVentilatorsByRequestedTime,
-    dollarsInFlight
+    toTwodecimal,
+    dollarsInFlight,
+    elapsedTimeInDays
   };
 };
 export const severeImpactCases = (data) => {
@@ -55,7 +57,7 @@ export const severeImpactCases = (data) => {
   const casesForVentilatorsByRequestedTime = parseInt(infectionsByRequestedTime * 0.02, 10);
   const dollarOut = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
   const toTwodecimal = dollarOut.toFixed(2);
-  const dollarsInFlight = (infectionsByRequestedTime * region.avgDailyIncomeInUSD) / elapsedTimeInDays;
+  const dollarsInFlight=(infectionsByRequestedTime*region.avgDailyIncomeInUSD)/elapsedTimeInDays;
   return {
     currentlyInfected,
     infectionsByRequestedTime,
@@ -63,7 +65,9 @@ export const severeImpactCases = (data) => {
     hospitalBedsByRequestedTime,
     casesForICURequestedTime,
     casesForVentilatorsByRequestedTime,
-    dollarsInFlight
+    toTwodecimal,
+    dollarsInFlight,
+    elapsedTimeInDays
   };
 };
 const covid19ImpactEstimator = (data) => ({
