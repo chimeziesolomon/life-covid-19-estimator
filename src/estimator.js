@@ -5,7 +5,7 @@ export const impactCases = (data) => {
     months,
     elapsedTimeInDays
   }
-  const convertToDays = (timeToElapse, periodType) => {
+   (timeToElapse, periodType) => {
     if (periodType === days) {
       Math.trunc(2 ** (timeToElapse )/ 3);
     } else if (periodType === weeks) {
