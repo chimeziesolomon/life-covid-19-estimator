@@ -1,20 +1,5 @@
 export const impactCases = (data) => {
-  const {
-    days,
-    weeks,
-    months,
-    elapsedTimeInDays
-  }
-   (timeToElapse, periodType) => {
-    if (periodType === days) {
-      Math.trunc(2 ** (timeToElapse )/ 3);
-    } else if (periodType === weeks) {
-      Math.trunc(2 ** (timeToElapse * 7 )/ 3);
-    } else {
-      periodType = months;
-      Math.trunc(2 ** (timeToElapse * 30 )/ 3);
-    }
-  };
+
   const {
     periodType,
     timeToElapse,
@@ -75,6 +60,22 @@ export const severeImpactCases = (data) => {
     dollarsInFlight,
     elapsedTimeInDays
   };
+};
+const {
+  days,
+  weeks,
+  months,
+  elapsedTimeInDays
+}
+const convertToDays = (timeToElapse, periodType) => {
+  if (periodType === days) {
+    Math.trunc(2 ** (timeToElapse )/ 3);
+  } else if (periodType === weeks) {
+    Math.trunc(2 ** (timeToElapse * 7 )/ 3);
+  } else {
+    periodType = months;
+    Math.trunc(2 ** (timeToElapse * 30 )/ 3);
+  }
 };
 const covid19ImpactEstimator = (data) => ({
   data,
