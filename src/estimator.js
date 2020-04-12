@@ -9,13 +9,12 @@ const elapsedTimeInDays = ({
   months
 });
 const convertToDays = (timeToElapse, periodType) => {
-  if (periodType === days) {
+  if (periodType === 'days') {
     Math.trunc(2 ** ((timeToElapse * 7) / 3));
-  } else if (periodType === weeks) {
+  } else if (periodType === 'weeks') {
     Math.trunc(2 ** ((timeToElapse * 7) / 3));
   } else {
-    periodType = months;
-    Math.trunc(2 ** ((timeToElapse * 7) / 3));
+    Math.trunc(2 ** ((timeToElapse * 30) / 3));
   }
 };
 
