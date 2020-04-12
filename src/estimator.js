@@ -61,12 +61,7 @@ export const severeImpactCases = (data) => {
     elapsedTimeInDays
   };
 };
-const {
-  days,
-  weeks,
-  months,
-  elapsedTimeInDays
-}
+
 const convertToDays = (timeToElapse, periodType) => {
   if (periodType === days) {
     Math.trunc(2 ** (timeToElapse )/ 3);
@@ -77,6 +72,12 @@ const convertToDays = (timeToElapse, periodType) => {
     Math.trunc(2 ** (timeToElapse * 30 )/ 3);
   }
 };
+const [
+  days,
+  weeks,
+  months,
+  elapsedTimeInDays
+];
 const covid19ImpactEstimator = (data) => ({
   data,
   impact: impactCases(data),
