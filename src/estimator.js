@@ -5,7 +5,7 @@ const  elapsedTimeInDays = ({
   days,
   weeks,
   months
-})  
+})
   const convertToDays = (timeToElapse, periodType) => {
     if (periodType === days) {
       Math.trunc(2 ** ((timeToElapse * 7)/3));
