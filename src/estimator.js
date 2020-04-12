@@ -77,7 +77,7 @@ const [
   weeks,
   months,
   elapsedTimeInDays
-];
+]
 const covid19ImpactEstimator = (data) => ({
   data,
   impact: impactCases(data),
