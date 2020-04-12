@@ -1,4 +1,6 @@
-let days, weeks, months;
+let days;
+let weeks;
+let months;
 const  elapsedTimeInDays = ({
   days,
   weeks,
