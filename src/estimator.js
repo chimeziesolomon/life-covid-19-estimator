@@ -1,25 +1,26 @@
+/* eslint-disable max-len */
+/* eslint-disable no-param-reassign */
 let days;
 let weeks;
 let months;
-const  elapsedTimeInDays = ({
+const elapsedTimeInDays = ({
   days,
   weeks,
   months
-})
-  const convertToDays = (timeToElapse, periodType) => {
-    if (periodType === days) {
-      Math.trunc(2 ** ((timeToElapse * 7)/3));
-    } else if (periodType === weeks) {
-      Math.trunc(2 ** ((timeToElapse * 7)/3));
-    } else {
-      periodType = months;
-      Math.trunc(2 ** ((timeToElapse * 7)/3));
-    }
-  };
+});
+const convertToDays = (timeToElapse, periodType) => {
+  if (periodType === days) {
+    Math.trunc(2 ** ((timeToElapse * 7) / 3));
+  } else if (periodType === weeks) {
+    Math.trunc(2 ** ((timeToElapse * 7) / 3));
+  } else {
+    periodType = months;
+    Math.trunc(2 ** ((timeToElapse * 7) / 3));
+  }
+};
 
 
 export const impactCases = (data) => {
-
   const {
     periodType,
     timeToElapse,
