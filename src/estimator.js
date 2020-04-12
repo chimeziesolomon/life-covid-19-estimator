@@ -1,4 +1,4 @@
-let convertToDays;
+
 const  elapsedTimeInDays = ({
   days,
   weeks,
