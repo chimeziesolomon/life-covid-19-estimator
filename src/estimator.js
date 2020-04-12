@@ -16,6 +16,10 @@ const convertToDays = (timeToElapse, periodType) => {
   } else {
     Math.trunc(2 ** ((timeToElapse * 30) / 3));
   }
+  return {
+    timeToElapse,
+    periodType
+  };
 };
 
 
