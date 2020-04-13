@@ -19,8 +19,8 @@ const covid19ImpactEstimator = (data) => {
   const svrSevereCasesByRequestedTime = Math.trunc(
     0.15 * svrInfectionsByRequestedTime
   );
-  // eslint-disable-next-line no-undef
-  const hospitalBedsByRequestedTime = hospitalBedsAvailable - severeCasesByRequestedTime;
+
+  const hospitalBedsByRequestedTime = Math.trunc(0.35 * totalBed) - severeCasesByRequestedTime + 1;
   const svrBedsByRequestedTime = Math.trunc(0.35 * totalBed) - svrSevereCasesByRequestedTime + 1;
   const casesForICUByRequestedTime = Math.trunc(0.05 * infectionsByRequestedTime);
   const svrCasesForICUByRequestedTime = Math.trunc(
@@ -33,13 +33,13 @@ const covid19ImpactEstimator = (data) => {
     0.02 * svrInfectionsByRequestedTime
   );
   dollarsInFlight = (infectionsByRequestedTime * avgIncPop * avgIncome) / numDays;
-  // dollarsInFlight = parseFloat(dollarsInFlight.toFixed(2));
+
   dollarsInFlight = Math.trunc(dollarsInFlight);
   svrDollarsInFlight = (svrInfectionsByRequestedTime * avgIncPop * avgIncome) / numDays;
-  // svrDollarsInFlight = parseFloat(svrDollarsInFlight.toFixed(2));;
+
   svrDollarsInFlight = Math.trunc(svrDollarsInFlight);
   return {
-    // data: { ...data },
+
     impact: {
       currentlyInfected,
       infectionsByRequestedTime,
